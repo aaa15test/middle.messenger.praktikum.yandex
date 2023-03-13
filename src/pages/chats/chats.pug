@@ -1,0 +1,91 @@
+include ../../components/chatItem
+include ../../components/search
+include ../../components/link
+include ../../components/chatHeader
+include ../../components/message
+include ../../components/sendMessage
+
+block head
+  link(rel='stylesheet', href='./chats.styl')
+
+block content
+  - const chats = [{
+  -    "id": 'user1',
+  -    "userName": "Brian",
+  -    "lastMessage": "Image",
+  -    "messageDate": "10:49",
+  -    "unreadMessagesCount": "2"
+  -  },
+  -  {
+  -    "id": "user2",
+  -    "userName": "Gabriel",
+  -    "lastMessage": "Image",
+  -    "messageDate": "12:00"
+  -  },
+  -  {
+  -    "id": "user3",
+  -    "userName": "Carl",
+  -    "lastMessage": "Hello",
+  -    "messageDate": "15:12",
+  -    "unreadMessagesCount": "4"
+  -  },
+  -  {
+  -    "id": "user4",
+  -    "userName": "Oliver",
+  -    "lastMessage": "Cool!",
+  -    "messageDate": "Fr"
+  -  },
+  -  {
+  -    "id": "user5",
+  -    "userName": "Walter",
+  -    "lastMessage": "Hi!",
+  -    "messageDate": "Wed"
+  -  },
+  -  {
+  -    "id": "user6",
+  -    "userName": "Henry",
+  -    "lastMessage": "Hello",
+  -    "messageDate": "Fr"
+  -  },
+  -  {
+  -    "id": "user7",
+  -    "userName": "Sandrs",
+  -    "lastMessage": "Hello!",
+  -    "messageDate": "Mon"
+  -  },
+  -  {
+  -    "id": "user8",
+  -    "userName": "Grace",
+  -    "lastMessage": "Hello",
+  -    "messageDate": "1 May 2020"
+  -  }
+  -]
+
+  .chatsWrapper
+    .chatsList
+      .searchWrapper
+        +search('Search')
+        .myProfile
+          +link('My profile', '/profile')
+          i.fa.fa-angle-right.angleIcon
+      .chatWrapper
+        each chat in chats
+          +chatItem(chat)
+    
+    
+    //- следующие 2 строчки - условие, если не выбран ни один чат
+    //- .chatChoosed
+    //-   p.selectChat Select a chat to send a message
+    .chatBlock
+      .chatHeaderBlock
+        +chatHeader(chats[0].id, chats[0].userName)
+      .chatData
+        p.chatDate Tommorow
+        .messagesBlock
+          +message('Hello. you are online?', '09:00')
+          +message('Yes, sure. I am online 24 hours', '09:00', true)
+          +message('Jerry, how often do you use the Internet?', '09:00')
+
+        .sendBlock
+          +sendMessage()
+          

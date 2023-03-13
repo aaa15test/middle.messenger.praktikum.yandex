@@ -1,0 +1,9 @@
+include ./input
+
+mixin sendMessage()
+  .sendMessageWrapper
+    +input('', 'sendMessage', 'text', 'Enter your message')
+    .addFileBlock 
+      div
+        i.fa.fa-paperclip.paperclipIcon
+      img.sendIcon(src='../../icons/backIcon.svg')

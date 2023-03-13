@@ -1,0 +1,32 @@
+{
+  "name": "chat1",
+  "version": "1.0.0",
+  "description": "### Откройте pull request в ветку main из ветки, где вы разрабатывали проект, и добавьте ссылку на этот pr в README.md в ветке main.  ### ВАЖНО: pull request должен называться “Sprint i” (i — номер спринта).",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel index.html --no-cache --port 3000",
+    "server": "node server.js",
+    "dev": "parcel index.html --port 3000",
+    "build": "parcel build index.html --no-cache"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aaa15test/middle.messenger.praktikum.yandex.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aaa15test/middle.messenger.praktikum.yandex/issues"
+  },
+  "homepage": "https://github.com/aaa15test/middle.messenger.praktikum.yandex#readme",
+  "dependencies": {
+    "@parcel/transformer-pug": "^2.8.3",
+    "stylus": "^0.59.0"
+  },
+  "devDependencies": {
+    "@parcel/transformer-inline-string": "^2.8.3",
+    "@parcel/transformer-stylus": "^2.8.3",
+    "parcel": "^2.8.3"
+  }
+}

@@ -1,0 +1,11 @@
+include ./link
+
+mixin uploadFileModal(label, href)
+  .modalWrapper(id='uploadFileModal')
+    .modal
+      p.modalTitle Upload file
+      .selectFileButton
+        +link('Select file on computer', '')
+      .linkButton
+        +button('Change', 'change', 'button')
+      

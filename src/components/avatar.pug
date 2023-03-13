@@ -1,0 +1,5 @@
+mixin avatar(id, width, name, userName, showUserName = true)
+  button.avatarWrapper(id=id name=name style={ width, height: width })
+  if showUserName
+    p.avatarUserName= userName
+      

@@ -1,19 +1,3 @@
-// import { renderLogin } from './pages/login/index'
-// // import { renderRegistartion } from './pages/registration/index'
-// // import { render404 } from './pages/404/index'
-// // import { render500 } from './pages/500/index'
-// // renderRegistartion()
-
-// import { Routing } from './pages/index'
-// // console.log(Register(), 'Routing')
-
-// const App = () => (
-//     // Potentially you can insert here 
-//     // A single header for the entire application
-//     // Or do it on separate pages
-//     Routing()
-// )
-
 import { Login } from './pages/login/index'
 import { Register } from './pages/register/index'
 import { Profile } from './pages/profile/index'

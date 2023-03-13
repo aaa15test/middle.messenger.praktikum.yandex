@@ -2,7 +2,7 @@ include ./input
 
 mixin sendMessage()
   .sendMessageWrapper
-    +input(false, 'sendMessage', 'text', 'Enter your message')
+    +input(false, 'message', 'text', 'Enter your message')
     .addFileBlock 
       div
         img.paperclipIcon(src='../../icons/paperclipIcon.svg')

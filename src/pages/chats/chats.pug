@@ -5,62 +5,64 @@ include ../../components/chatHeader
 include ../../components/message
 include ../../components/sendMessage
 
+-
+  const chats = [
+    {
+      id: 'user1',
+      userName: 'Brian',
+      lastMessage: 'Image',
+      messageDate: '10:49',
+      unreadMessagesCount: 2
+    },
+    {
+      id: 'user2',
+      userName: 'Gabriel',
+      lastMessage: 'Image',
+      messageDate: '12:00'
+    },
+    {
+      id: 'user3',
+      userName: 'Carl',
+      lastMessage: 'Hello',
+      messageDate: '15:12',
+      unreadMessagesCount: 4
+    },
+    {
+      id: 'user4',
+      userName: 'Oliver',
+      lastMessage: 'Cool!',
+      messageDate: 'Fr'
+    },
+    {
+      id: 'user5',
+      userName: 'Walter',
+      lastMessage: 'Hi!',
+      messageDate: 'Wed'
+    },
+    {
+      id: 'user6',
+      userName: 'Henry',
+      lastMessage: 'Hello',
+      messageDate: 'Fr'
+    },
+    {
+      id: 'user7',
+      userName: 'Sandra',
+      lastMessage: 'Hello!',
+      messageDate: 'Mon'
+    },
+    {
+      id: 'user8',
+      userName: 'Grace',
+      lastMessage: 'Hello',
+      messageDate: '1 May 2020'
+    }
+  ]
+
 block head
   link(rel='stylesheet', href='./chats.styl')
 
 block content
-  - const chats = [{
-  -    "id": 'user1',
-  -    "userName": "Brian",
-  -    "lastMessage": "Image",
-  -    "messageDate": "10:49",
-  -    "unreadMessagesCount": "2"
-  -  },
-  -  {
-  -    "id": "user2",
-  -    "userName": "Gabriel",
-  -    "lastMessage": "Image",
-  -    "messageDate": "12:00"
-  -  },
-  -  {
-  -    "id": "user3",
-  -    "userName": "Carl",
-  -    "lastMessage": "Hello",
-  -    "messageDate": "15:12",
-  -    "unreadMessagesCount": "4"
-  -  },
-  -  {
-  -    "id": "user4",
-  -    "userName": "Oliver",
-  -    "lastMessage": "Cool!",
-  -    "messageDate": "Fr"
-  -  },
-  -  {
-  -    "id": "user5",
-  -    "userName": "Walter",
-  -    "lastMessage": "Hi!",
-  -    "messageDate": "Wed"
-  -  },
-  -  {
-  -    "id": "user6",
-  -    "userName": "Henry",
-  -    "lastMessage": "Hello",
-  -    "messageDate": "Fr"
-  -  },
-  -  {
-  -    "id": "user7",
-  -    "userName": "Sandrs",
-  -    "lastMessage": "Hello!",
-  -    "messageDate": "Mon"
-  -  },
-  -  {
-  -    "id": "user8",
-  -    "userName": "Grace",
-  -    "lastMessage": "Hello",
-  -    "messageDate": "1 May 2020"
-  -  }
-  -]
-
   .chatsWrapper
     .chatsList
       .searchWrapper

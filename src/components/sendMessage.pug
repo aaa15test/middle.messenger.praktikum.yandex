@@ -1,0 +1,9 @@
+include ./input
+
+mixin sendMessage()
+  .sendMessageWrapper
+    +input(false, 'message', 'text', 'Enter your message')
+    .addFileBlock 
+      div
+        img.paperclipIcon(src='../../icons/paperclipIcon.svg')
+      img.sendIcon(src='../../icons/backIcon.svg')

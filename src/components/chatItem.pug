@@ -1,0 +1,16 @@
+include ./avatar
+
+mixin chatItem(chat)
+  - const { id, userName, lastMessage, messageDate, unreadMessagesCount } = chat
+  .chatItemWrapper
+    .userInfoWrapper
+      +avatar(id, 47, id, userName, false)
+      .userInfo 
+        p.userName= userName
+        p.lastMessage= lastMessage
+    .messageInfo 
+      p.messageDate= messageDate
+      if unreadMessagesCount
+        .unreadCircle
+          p.unreadMessagesCount= unreadMessagesCount
+ 

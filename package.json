@@ -28,6 +28,7 @@
     "@parcel/transformer-inline-string": "^2.8.3",
     "@parcel/transformer-pug": "^2.8.3",
     "@parcel/transformer-stylus": "^2.8.3",
+    "express": "^4.18.2",
     "parcel": "^2.8.3"
   }
 }

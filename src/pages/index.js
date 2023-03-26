@@ -1,0 +1,6 @@
+export { Login } from './login/index'
+export { Register } from './register/index'
+export { Profile } from './profile/index'
+export { Chats } from './chats/index'
+export { Page500 } from './500/index'
+export { Page404 } from './404/index'

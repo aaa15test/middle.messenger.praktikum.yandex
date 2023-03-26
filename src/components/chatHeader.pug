@@ -1,0 +1,8 @@
+include ./avatar
+
+mixin chatHeader(userId, userName)
+  .chatHeader
+    .userInformation
+      +avatar(userId, 46, userId, userName, false)
+      p.chatUserName= userName
+    i.fa.fa-bars.barsIcon

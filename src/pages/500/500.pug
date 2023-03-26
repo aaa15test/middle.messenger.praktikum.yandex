@@ -1,0 +1,13 @@
+extends ../../layout/main
+include ../../components/link
+
+block head
+  link(rel='stylesheet', href='./500.styl')
+
+block content
+  .bugRoot
+    div
+      p.title 500
+      p.message We are already fixing
+      .backChats
+        +link('Back to chats', '/chats')

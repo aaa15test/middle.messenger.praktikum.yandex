@@ -1,33 +1,26 @@
-extends ../../layout/main
-include ../../components/inputProfile
-include ../../components/button
-include ../../components/backButton
-include ../../components/uploadFileModal
-include ../../components/avatar
+.wrapper
+  | !{ backButton }
+  .information
+    .userData
+      .avatar
+        | !{ avatar }
+      .inputBlock
+        form
+          | !{ email }
+          | !{ login }
+          | !{ firstName }
+          | !{ lastName }
+          | !{ displayName }
+          | !{ phone }
 
-block head
-  link(rel='stylesheet', href='./profile.styl')
-  link(rel='stylesheet' href='../../../styles/index.styl')
+          //- Change data and Change password buttons
+          //- .changeButtons
+          //-   | !{ changeData }
+          //-   | !{ changePassword }
 
-block content
-  .wrapper
-    +backButton('/chats')
-    .information
-      .userData
-        .avatar
-          +avatar('avatar', 130, 'avatar', 'User Name')
-        .inputBlock
-          form
-            +inputProfile('Email', 'email', 'text', 'pochta@yandex.ru')
-            +inputProfile('Login', 'login', 'text', 'ivanovivan')
-            +inputProfile('First name', 'first_name', 'text', 'Ivan')
-            +inputProfile('Last name', 'second_name', 'text', 'Ivanov')
-            +inputProfile('Name in chat', 'display_name', 'text', 'Ivanov')
-            +inputProfile('Phone', 'phone', 'text', '79999999999')
-            .changeButtons
-              +button('Change data', 'change_data', 'button', 'outlined green', { width: '45%' })
-              +button('Change password', 'change_password', 'button', 'outlined green', { width: '45%' })
-            .logoutButtonBlock
-              +button('Logout', 'logout', 'button', 'outlined red', { width: '45%' })
+          //- Save and Logout buttons
+          .logoutButtonBlock
+            //- | !{ logout }
+            | !{ save }
 
-    +uploadFileModal()
+  | !{ uploadFileModal }

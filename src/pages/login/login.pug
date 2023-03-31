@@ -1,22 +1,13 @@
-extends ../../layout/main
-include ../../components/input
-include ../../components/button
-include ../../components/link
-
-block head
-  link(rel='stylesheet' href='./login.styl')
-
-block content
-  .loginWrapper
-    .loginMain
-      p.authTitle Login
-      .inputBlock
-        form(action='/login')
-          +input('Email', 'email', 'text')
-          .notFirst
-            +input('Password', 'password', 'password')
-          .loginButton
-            +button('Sign in', 'login', 'submit', { background: '#53AA7E' })
-    
-    .register
-      +link('Register', '/register')
+.loginWrapper
+  .loginMain
+    p.authTitle Авторизация
+    .inputBlock
+      form(id='loginForm')
+        | !{ email }
+        .notFirst
+          | !{ password }
+        .loginButton
+          | !{ button }
+  
+  .register
+    | !{ link }

@@ -1,13 +1,6 @@
-extends ../../layout/main
-include ../../components/link
-
-block head
-  link(rel='stylesheet', href='./404.styl')
-
-block content
-  .notFoundRoot
-    div
-      p.title 404
-      p.message Page not found
-      .backChats
-        +link('Back to chats', '/chats')
+.notFoundRoot
+  div
+    p.title 404
+    p.message Страница не найдена
+    .backChats
+      | !{ link }

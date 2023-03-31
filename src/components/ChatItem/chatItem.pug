@@ -1,0 +1,11 @@
+a.chatItemWrapper
+  .userInfoWrapper
+    | !{ avatar }
+    .userInfo 
+      p.userName= userName
+      p.lastMessage= lastMessage
+  .messageInfo 
+    p.messageDate= messageDate
+    if unreadMessagesCount
+      .unreadCircle
+        p.unreadMessagesCount= unreadMessagesCount

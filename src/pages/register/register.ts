@@ -65,7 +65,7 @@ export class Register extends Block {
       label: 'Регистрация',
       name: 'register',
       type: 'submit',
-      style: { background: '#53AA7E' },
+      style: { background: '#53aa7e' },
       events: {
         click: (e: Event & { target: HTMLInputElement }) => this.submit(e)
       },

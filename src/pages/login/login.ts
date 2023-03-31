@@ -16,7 +16,7 @@ export class Login extends Block {
       label: 'Войти',
       name: 'login',
       type: 'submit',
-      style: { background: '#53AA7E' },
+      style: { background: '#53aa7e' },
       events: {
         click: (e: Event & { target: HTMLInputElement }) => this.submit(e)
       }

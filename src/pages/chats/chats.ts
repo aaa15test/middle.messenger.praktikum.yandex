@@ -40,7 +40,7 @@ export class Chats extends Block {
       label: 'Авторизация',
       name: 'login',
       type: 'submit',
-      style: { background: '#53AA7E' },
+      style: { background: '#53aa7e' },
       events: {
         click: () => console.log('click')
       }

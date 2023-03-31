@@ -1,4 +1,4 @@
-@require('../../static/')
+@import('../../static/')
 
 .sendMessageWrapper
   display flex
@@ -9,7 +9,7 @@
   color $gray
   width 28px
   height @width
-  background-image: url('../../icons/paperclipIcon.svg')
+  background-image url('../../icons/paperclipIcon.svg')
 
 .addFileBlock
   display flex
@@ -21,8 +21,8 @@
 .sendIcon
   width 28px
   height @width
-  transform: rotate(180deg)
-  background-image: url('../../icons/backIcon.svg')
+  transform rotate(180deg)
+  background-image url('../../icons/backIcon.svg')
 
 .error
   margin-top 2px

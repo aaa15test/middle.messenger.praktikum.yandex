@@ -26,7 +26,7 @@ export class SendMessage extends Block {
   onValidate(e: Event & { target: HTMLInputElement }) {
     const name = 'message'
 
-    validation([{ value: e.target.value, regex: regexes[name].regex }]).forEach(item => {
+    validation([{ value: e.target.value, regex: regexes[name].regex }]).forEach((item) => {
       if (!item) {
         this.element?.querySelector('p')?.classList.add('show')
         const errorElement: any = this.element?.querySelector('p')

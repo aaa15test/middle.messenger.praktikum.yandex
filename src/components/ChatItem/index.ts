@@ -16,7 +16,7 @@ interface ChatItemProps {
 }
 
 export class ChatItem extends Block<ChatItemProps> {
-  constructor(props) {
+  constructor(props: ChatItemProps) {
     super(props);
   }
 

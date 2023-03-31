@@ -1,4 +1,4 @@
-export const regexes = {
+export const regexes: any = {
   login: {
     regex: /[0-9A-Za-z_-]{3,20}$/,
     notice: 'Логин должен состоять из цифр и латинских букв, длина от 3 до 20 символов'

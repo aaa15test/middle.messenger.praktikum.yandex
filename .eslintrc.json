@@ -9,7 +9,18 @@
     "import/prefer-default-export": "off",
     "comma-dangle": "off",
     "@typescript-eslint/comma-dangle": "off",
-    "arrow-body-style": "off"
+    "arrow-body-style": "off",
+    "import/extensions": "off",
+    "import/no-unresolved": "off",
+    "semi": "off",
+    "class-methods-use-this": "off",
+    "no-console": "off",
+    "no-useless-constructor": "off",
+    "@typescript-eslint/ban-types": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "no-underscore-dangle": "off",
+    "@typescript-eslint/no-empty-function": "off",
+    "@typescript-eslint/no-this-alias": "off"
   },
   "env": {
     "browser": true,

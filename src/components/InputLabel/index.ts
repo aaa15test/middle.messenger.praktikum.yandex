@@ -23,10 +23,12 @@ export class InputLabel extends Block<InputLabelProps> {
     super(props)
   }
 
-  isValidateValue: boolean = false
+  isValidateValue = false
 
   init() {
-    const { id, type, name, placeholder, value } = this.props
+    const {
+      id, type, name, placeholder, value
+    } = this.props
     this.children.input = new Input({
       id,
       type,
@@ -43,17 +45,18 @@ export class InputLabel extends Block<InputLabelProps> {
   }
 
   onValidate(e: Event & { target: HTMLInputElement }) {
-    return validation([{ value: e?.target.value || '', regex: regexes[this.props.name].regex }]).forEach(item => {
-      if (!item) {
-        this.element?.querySelector('p')?.classList.add('show')
-        const errorElement: any = this.element?.querySelector('p')
-        errorElement.innerHTML = regexes[this.props.name].notice
-        this.isValidateValue = false
-      } else {
-        this.element?.querySelector('p')?.classList.remove('show')
-        this.isValidateValue = true
-      }
-    })
+    return validation([{ value: e?.target.value || '', regex: regexes[this.props.name].regex }])
+      .forEach((item) => {
+        if (!item) {
+          this.element?.querySelector('p')?.classList.add('show')
+          const errorElement: HTMLParagraphElement | null | undefined = this.element?.querySelector('p')
+          errorElement.innerHTML = regexes[this.props.name].notice
+          this.isValidateValue = false
+        } else {
+          this.element?.querySelector('p')?.classList.remove('show')
+          this.isValidateValue = true
+        }
+      })
   }
 
   render() {

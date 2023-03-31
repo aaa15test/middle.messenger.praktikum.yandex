@@ -60,14 +60,18 @@ export class Chats extends Block {
       return new ChatItem({
         ...chat,
         events: {
-          click: () => this.setProps({ 'activeChatId': chat.id })
+          click: () => this.setProps({ activeChatId: chat.id })
         }
       })
     })
   }
 
   private displayMessages() {
-    return messages.map((message: any) => new Message(message))
+    return messages.map((message: {
+      text: string,
+      date: string,
+      isMyMessage?: boolean
+    }) => new Message(message))
   }
 
   render() {

@@ -1,7 +1,7 @@
 import Block from '../../utils/Block'
 import { regexes } from '../../utils/regexes'
 import { validation } from '../../utils/validation'
-import { Input  } from '../Input'
+import { Input } from '../Input'
 import template from './inputProfile.pug'
 import styles from './index.styl'
 
@@ -23,7 +23,7 @@ export class InputProfile extends Block<InputProfileProps> {
 
   init() {
     const { name, type, value } = this.props
-    const style: any = {
+    const style = {
       border: 0,
       height: '20px',
       width: '100%',
@@ -46,15 +46,16 @@ export class InputProfile extends Block<InputProfileProps> {
   }
 
   onValidate(e: Event & { target: HTMLInputElement }) {
-    validation([{ value: e ? e.target.value : '', regex: regexes[this.props.name].regex }]).forEach(item => {
-      if (!item) {
-        this.element?.querySelector('p')?.classList.add('show')
-        const errorElement: any = this.element?.querySelector('p')
-        errorElement.innerHTML = regexes[this.props.name].notice
-      } else {
-        this.element?.querySelector('p')?.classList.remove('show')
-      }
-    })
+    validation([{ value: e ? e.target.value : '', regex: regexes[this.props.name].regex }])
+      .forEach((item) => {
+        if (!item) {
+          this.element?.querySelector('p')?.classList.add('show')
+          const errorElement: any = this.element?.querySelector('p')
+          errorElement.innerHTML = regexes[this.props.name].notice
+        } else {
+          this.element?.querySelector('p')?.classList.remove('show')
+        }
+      })
   }
 
   render() {

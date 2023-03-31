@@ -9,7 +9,7 @@ interface InputProps {
   type: string;
   placeholder?: string;
   value?: string,
-  style?: [],
+  style?: {},
   events?: {
     click?: (e: Event) => unknown,
     focus?: (e: Event) => void,

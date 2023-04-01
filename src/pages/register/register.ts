@@ -57,7 +57,7 @@ export class Register extends Block {
     this.children.passwordAgain = new InputLabel({
       id: 'passwordAgain',
       label: 'Пароль (еще раз)',
-      name: 'password',
+      name: 'passwordAgain',
       type: 'password'
     });
 

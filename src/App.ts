@@ -7,7 +7,7 @@ import { Page404 } from './pages/404/index';
 
 export const App = () => {
   const root = document.getElementById('root');
-  let page: any
+  let page
 
   switch (window.location.pathname) {
     case '/login':

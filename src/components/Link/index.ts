@@ -5,6 +5,7 @@ import styles from './index.styl';
 interface LinkProps {
   href: string;
   label: string;
+  style?: string;
 }
 
 export class Link extends Block<LinkProps> {

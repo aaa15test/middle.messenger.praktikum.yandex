@@ -1,3 +1,4 @@
+import { Navigation } from './components/Navigation';
 import { Login } from './pages/login/login';
 import { Register } from './pages/register/register';
 import { Profile } from './pages/profile/index';
@@ -6,7 +7,9 @@ import { Page500 } from './pages/500/index';
 import { Page404 } from './pages/404/index';
 
 export const App = () => {
-  const root = document.getElementById('root');
+  const root: HTMLElement = document.getElementById('root');
+  const content: HTMLElement = document.createElement('div')
+  content.className = 'content'
   let page
 
   switch (window.location.pathname) {
@@ -33,5 +36,9 @@ export const App = () => {
       break
   }
 
-  root.appendChild(page.getContent())
+  const navigation = new Navigation()
+  root?.appendChild(navigation.element)
+  content.appendChild(page.getContent())
+
+  root?.append(content)
 }

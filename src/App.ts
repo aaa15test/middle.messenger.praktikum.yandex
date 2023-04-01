@@ -34,4 +34,4 @@ export const App = () => {
   }
 
   root.appendChild(page.getContent())
-};
+}

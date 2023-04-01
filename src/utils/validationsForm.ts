@@ -1,7 +1,7 @@
 import { InputLabel } from '../components/InputLabel'
 
 export function validationForm(
-  element: HTMLElement | null,
+  element: HTMLElement,
   e: Event & { target: HTMLInputElement },
   children: {}
 ) {

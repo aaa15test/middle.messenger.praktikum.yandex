@@ -49,7 +49,7 @@ export class InputLabel extends Block<InputLabelProps> {
       .forEach((item) => {
         if (!item) {
           this.element?.querySelector('p')?.classList.add('show')
-          const errorElement: HTMLParagraphElement | null | undefined = this.element?.querySelector('p')
+          const errorElement: HTMLParagraphElement = this.element?.querySelector('p')
           errorElement.innerHTML = regexes[this.props.name].notice
           this.isValidateValue = false
         } else {

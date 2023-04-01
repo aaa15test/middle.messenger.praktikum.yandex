@@ -6,11 +6,6 @@
   flex-direction column
   flex 1
 
-  &[error = true]
-    border-width 1px
-    border-style solid
-    border-color $red
-
 .inputLabel
   font-size 16px
   color $black
@@ -26,12 +21,13 @@
   padding-left 12px
   padding-right 12px
   display flex
+
 .error
   margin-top 2px
   font-size 11px
-  display none
+  display block
+  height 20px
+  color $white
 
 .show
   color $red
-  display block
-

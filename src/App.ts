@@ -8,7 +8,7 @@ import { Page404 } from './pages/404/index';
 export const App = () => {
   const root = document.getElementById('root');
   let page: any
-  
+
   switch (window.location.pathname) {
     case '/login':
       page = new Login();
@@ -33,5 +33,5 @@ export const App = () => {
       break
   }
 
-  root!.appendChild(page.getContent()!)
+  root.appendChild(page.getContent())
 };

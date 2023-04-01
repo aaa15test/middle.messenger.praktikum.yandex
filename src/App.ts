@@ -11,25 +11,25 @@ export const App = () => {
 
   switch (window.location.pathname) {
     case '/login':
-      page = new Login();
+      page = new Login()
       break
     case '/register':
-      page = new Register();
+      page = new Register()
       break
     case '/profile':
-      page = new Profile();
+      page = new Profile()
       break
     case '/chats':
-      page = new Chats();
+      page = new Chats()
       break
     case '/500':
-      page = new Page500();
+      page = new Page500()
       break
     case '/404':
-      page = new Page404();
+      page = new Page404()
       break
     default:
-      page = new Login();
+      page = new Login()
       break
   }
 

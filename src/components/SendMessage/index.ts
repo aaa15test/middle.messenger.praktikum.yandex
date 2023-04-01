@@ -29,7 +29,7 @@ export class SendMessage extends Block {
     validation([{ value: e.target.value, regex: regexes[name].regex }]).forEach((item) => {
       if (!item) {
         this.element?.querySelector('p')?.classList.add('show')
-        const errorElement: any = this.element?.querySelector('p')
+        const errorElement: HTMLParagraphElement = this.element?.querySelector('p')
         errorElement.innerHTML = regexes[name].notice
       } else {
         this.element?.querySelector('p')?.classList.remove('show')

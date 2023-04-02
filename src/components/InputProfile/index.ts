@@ -51,7 +51,7 @@ export class InputProfile extends Block<InputProfileProps> {
         if (!item) {
           this.element?.querySelector('p')?.classList.add('show')
           const errorElement: HTMLParagraphElement = this.element?.querySelector('p')
-          errorElement.innerHTML = regexes[this.props.name].notice
+          errorElement.textContent = regexes[this.props.name].notice
         } else {
           this.element?.querySelector('p')?.classList.remove('show')
         }

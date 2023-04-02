@@ -50,7 +50,7 @@ export class InputLabel extends Block<InputLabelProps> {
         if (!item) {
           this.element?.querySelector('p')?.classList.add('show')
           const errorElement: HTMLParagraphElement = this.element?.querySelector('p')
-          errorElement.innerHTML = regexes[this.props.name].notice
+          errorElement.textContent = regexes[this.props.name].notice
           this.isValidateValue = false
         } else {
           this.element?.querySelector('p')?.classList.remove('show')

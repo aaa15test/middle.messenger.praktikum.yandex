@@ -30,7 +30,7 @@ export class SendMessage extends Block {
       if (!item) {
         this.element?.querySelector('p')?.classList.add('show')
         const errorElement: HTMLParagraphElement = this.element?.querySelector('p')
-        errorElement.innerHTML = regexes[name].notice
+        errorElement.textContent = regexes[name].notice
       } else {
         this.element?.querySelector('p')?.classList.remove('show')
       }

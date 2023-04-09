@@ -1,24 +1,15 @@
-extends ../../layout/main
-include ../../components/input
-include ../../components/button
-include ../../components/link
-
-block head
-  link(rel='stylesheet', href='./register.styl')
-
-block content
-  .registerRoot
-    .registerMain
-      p.authTitle Register
-      .inputBlock
-        form.form(action='/register')
-          +input('Email', 'email', 'text')
-          +input('Login', 'login', 'text')
-          +input('First name', 'first_name', 'text')
-          +input('Last name', 'second_name', 'text')
-          +input('Phone', 'phone', 'text')
-          +input('Password', 'password', 'password')
-          +input('Password (again)', 'password', 'password')
-          +button('Register', 'register', 'submit', { background: '#53AA7E' })
-    .signin
-      +link('Sign in', '/login')
+.registerRoot
+  .registerMain
+    p.authTitle Регистрация
+    .inputBlock
+      form.form(action='/register')
+        | !{ email }
+        | !{ login }
+        | !{ firstName }
+        | !{ secondName }
+        | !{ phone }
+        | !{ password }
+        | !{ passwordAgain }
+        | !{ register }
+  .signin
+    | !{ loginLink }

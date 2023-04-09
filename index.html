@@ -5,6 +5,7 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' />
     <link rel='stylesheet' href='./src/static/index.styl' />
+    <link rel='stylesheet' href='./styles/index.styl' />
     <title>Chat</title>
     <style>
       html, body {
@@ -12,11 +13,14 @@
         flex-direction: column;
         height: 100%;
         font-family: Inter, sans-serif;
+        margin: 0;
       }
     </style>
   </head>
   <body>
-    <div id='root'></div>
-    <script type='module' src='./src/index.js'></script>
+    <main>
+      <div class='root' id='root'></div>
+    </main>
+    <script type='module' src='./src/index.ts'></script>
   </body>
 </html>

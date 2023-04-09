@@ -1,0 +1,20 @@
+{
+  "extends": "stylelint-stylus/standard",
+  "plugins": [
+    "stylelint-stylus"
+  ],
+  "rules": {
+    "color-hex-case": "lower",
+    "stylus/declaration-colon": "never",
+    "stylus/pythonic": "always",
+    "stylus/selector-list-comma": "never",
+    "stylus/semicolon": "never",
+    "stylus/single-line-comment": "always"
+  },
+  "overrides": [
+    {
+      "files": ["*.stylus", "*.styl", "**/*.stylus", "**/*.styl"],
+      "customSyntax": "postcss-styl"
+    }
+  ]
+}

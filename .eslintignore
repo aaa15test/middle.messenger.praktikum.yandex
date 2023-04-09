@@ -1,0 +1,6 @@
+/build
+/dist
+/.parcel-cache
+**/*.min.js
+/node_modules 
+.DS_Store

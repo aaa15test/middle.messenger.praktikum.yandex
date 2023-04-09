@@ -1,0 +1,24 @@
+@import('../../static/')
+
+.search
+  display flex
+  flex-grow 1
+  flex-direction row
+
+.searchIcon
+  width 20px
+  height @width
+  position absolute
+  top 72
+  left 20
+  background-image url('../../icons/search.svg')
+
+.searchInput
+  padding-left 30px
+  padding-right 14px
+  border-width 1px
+  border-style solid
+  border-color $lightGray
+  border-radius 5px
+  height 40px
+  width 100%

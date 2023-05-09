@@ -1,4 +1,4 @@
-import { AuthAPI, SigninData, SignupData } from '../api/AuthApi'
+import { AuthAPI, SigninData, SignupData } from '../api/AuthAPI'
 import { store } from '../utils/Store'
 import router from '../utils/Router'
 

@@ -1,4 +1,4 @@
-import { ChatAPI, CreateNewChat } from '../api/ChatAPI'
+import { ChatAPI } from '../api/ChatAPI'
 import { store } from '../utils/Store'
 
 export class ChatController {

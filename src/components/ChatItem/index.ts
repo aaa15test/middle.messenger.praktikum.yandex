@@ -64,7 +64,6 @@ class Chat extends Block<ChatItemProps> {
   }
 
   render() {
-    // console.log(this.props.unread_count, 'unread_count')
     let timeFormated = ''
     if (this.props.last_message?.time) {
       const today = new Date()

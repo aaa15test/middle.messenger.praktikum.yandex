@@ -106,6 +106,7 @@ class AddDeleteChatUser extends Block<AddDeleteChatUserModalProps> {
       }
       store.set('showNotification', true)
       inputUser.value = ''
+
       setTimeout(() => {
         store.set('showNotification', false)
       }, 2000)

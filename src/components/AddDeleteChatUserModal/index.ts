@@ -122,8 +122,6 @@ class AddDeleteChatUser extends Block<AddDeleteChatUserModalProps> {
 }
 
 const withUser = withStore((state) => {
-  return {
-    ...state
-  }
+  return { ...state }
 });
 export const AddDeleteChatUserModal = withUser(AddDeleteChatUser as typeof Block);

@@ -51,8 +51,6 @@ class CreateChat extends Block {
 }
 
 const withUser = withStore((state) => {
-  return {
-    ...state
-  }
+  return { ...state }
 });
 export const CreateChatModal = withUser(CreateChat as typeof Block);

@@ -1,11 +1,13 @@
-a.chatItemWrapper
+a.chatItemWrapper(class={ active: activeChatId === id })
   .userInfoWrapper
     | !{ avatar }
     .userInfo 
-      p.userName= userName
+      p.userName= title
+      - const lastMessage = last_message?.content
       p.lastMessage= lastMessage
   .messageInfo 
-    p.messageDate= messageDate
-    if unreadMessagesCount
+    - const lastTime = last_message?.time
+    p.messageDate= timeFormated
+    if unread_count
       .unreadCircle
-        p.unreadMessagesCount= unreadMessagesCount
+        p.unreadMessagesCount= unread_count

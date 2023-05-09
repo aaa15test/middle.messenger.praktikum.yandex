@@ -1,2 +1,7 @@
 button.button(type=type name=name class=className style=style)
-  p.buttonLabel(style=labelStyle class=className)= label
+  if childrenType === 'bars' 
+    p.barsIcon ☰
+  else if childrenType === 'send'
+    .sendIcon
+  else
+    p.buttonLabel(style=labelStyle class=className)= label

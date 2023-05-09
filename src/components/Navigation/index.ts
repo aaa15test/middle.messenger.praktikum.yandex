@@ -6,19 +6,19 @@ import styles from './index.styl'
 const links = [
   {
     label: 'Авторизация',
-    href: '/login'
+    href: '/'
   },
   {
     label: 'Регистрация',
-    href: '/register'
+    href: '/sign-up'
   },
   {
     label: 'Чаты',
-    href: '/chats'
+    href: '/messenger'
   },
   {
     label: 'Профиль',
-    href: '/profile'
+    href: '/settings'
   },
   {
     label: '500',

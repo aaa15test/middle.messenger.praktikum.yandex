@@ -41,14 +41,15 @@ class Block<P extends Record<string, any> = any> {
     eventBus.emit(Block.EVENTS.INIT);
   }
 
-  _getChildrenAndProps(childrenAndProps: P): {props: P, children: Record<string, Block | Block[]>} {
+  _getChildrenAndProps(childrenAndProps: P): {
+    props: P,
+    children: Record<string, Block> | Record<string, Block[]>
+  } {
     const props: Record<string, unknown> = {};
-    const children: Record<string, Block | Block[]> = {};
+    const children: Record<string, Block> | Record<string, Block[]> = {};
 
     Object.entries(childrenAndProps).forEach(([key, value]) => {
-      if (Array.isArray(value) && value.length > 0 && value.every((v) => v instanceof Block)) {
-        children[key as string] = value;
-      } else if (value instanceof Block) {
+      if (value instanceof Block) {
         children[key as string] = value;
       } else {
         props[key] = value;
@@ -118,7 +119,7 @@ class Block<P extends Record<string, any> = any> {
     }
   }
 
-  protected componentDidUpdate(oldProps: P, newProps: P) {
+  protected componentDidUpdate(oldProps?: P, newProps?: P) {
     return true;
   }
 
@@ -135,12 +136,12 @@ class Block<P extends Record<string, any> = any> {
   }
 
   private _render() {
+    this._removeEvents();
     const fragment = this.render();
 
     const newElement = fragment.firstElementChild as HTMLElement;
 
     if (this._element && newElement) {
-      this._removeEvents();
       this._element.replaceWith(newElement);
     }
 
@@ -153,8 +154,11 @@ class Block<P extends Record<string, any> = any> {
     const contextAndStubs = { ...context };
 
     Object.entries(this.children).forEach(([name, component]) => {
+      contextAndStubs[name] = `<div data-id="${component.id}"></div>`
       if (Array.isArray(component)) {
-        contextAndStubs[name] = component.map((child) => `<div data-id="${child.id}"></div>`)
+        contextAndStubs[name] = component.map((child) => {
+          return `<div data-id="${child.id}"></div>`
+        })
       } else {
         contextAndStubs[name] = `<div data-id="${component.id}"></div>`;
       }
@@ -178,7 +182,7 @@ class Block<P extends Record<string, any> = any> {
       stub.replaceWith(component.getContent()!);
     }
 
-    Object.entries(this.children).forEach(([_, component]) => {
+    Object.entries(this.children).forEach(([name, component]) => {
       if (Array.isArray(component)) {
         component.forEach(replaceStub);
       } else {
@@ -218,6 +222,14 @@ class Block<P extends Record<string, any> = any> {
         throw new Error('Нет доступа');
       }
     });
+  }
+
+  showModal() {
+    this.getContent().style.display = 'flex'
+  }
+
+  hideModal() {
+    this.getContent().style.display = 'none'
   }
 }
 

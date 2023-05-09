@@ -1,0 +1,10 @@
+.modalChatWrapper(id='addDeleteChatUserModal')
+  .modal
+    .closeButton
+      | !{ close }
+    p.modalTitle= title
+    .selectFileButton
+      if wrapperId !== 'deleteChatWrapper'
+        .seacrhInputButton
+          | !{ enterLogin }
+      | !{ addDeleteButton }

@@ -18,6 +18,10 @@
   &.green
     border-color $green
 
+  &.withoutBorder
+    border-width 0
+    background-color $white
+
 .buttonLabel
   font-size 14px
   color $white
@@ -28,3 +32,22 @@
 
   &.red
     color $red
+
+  &.withoutBorder
+    color $black
+    font-weight normal
+    text-align left
+
+.barsIcon
+  width 30px
+  height @width
+  color $green
+  display flex
+  align-items center
+  font-size 24px
+
+.sendIcon
+  width 28px
+  height @width
+  transform rotate(180deg)
+  background-image url('../../icons/backIcon.svg')

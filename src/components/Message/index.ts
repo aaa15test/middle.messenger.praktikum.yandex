@@ -1,11 +1,16 @@
 import Block from '../../utils/Block'
+import { store } from '../../utils/Store'
 import template from './message.pug'
-import styles from './index.styl';
+import styles from './index.styl'
 
 interface MessageProps {
-  text: string,
-  date: string,
-  isMyMessage?: boolean
+  id: number,
+  chat_id: number,
+  user_id: number,
+  type: string,
+  content: string,
+  time: string,
+  file: string
 }
 
 export class Message extends Block<MessageProps> {
@@ -14,6 +19,14 @@ export class Message extends Block<MessageProps> {
   }
 
   render() {
-    return this.compile(template, { ...this.props, styles });
+    const time = new Date(this.props.time)
+    const timeFormated = `${time.getHours()}:${(time.getMinutes() < 10 ? '0' : '') + time.getMinutes()}`
+    const isMyMessage = this.props.user_id === store.getState().user.id
+    return this.compile(template, {
+      ...this.props,
+      timeFormated,
+      isMyMessage,
+      styles
+    });
   }
 }

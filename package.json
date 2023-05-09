@@ -21,9 +21,12 @@
   },
   "homepage": "https://github.com/aaa15test/middle.messenger.praktikum.yandex#readme",
   "dependencies": {
+    "js-stringify": "^1.0.2",
     "nanoid": "^3.3.6",
     "pug": "^3.0.2",
-    "stylus": "^0.59.0"
+    "stylus": "^0.59.0",
+    "@fortawesome/fontawesome-free": "^4.7.0",
+    "@fortawesome/free-solid-svg-icons": "^4.7.0"
   },
   "devDependencies": {
     "@parcel/transformer-inline-string": "^2.8.3",

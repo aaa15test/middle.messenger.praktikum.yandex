@@ -11,7 +11,7 @@ export class Page404 extends Block {
   init() {
     this.children.link = new Link({
       label: 'Назад к чатам',
-      href: '/chats'
+      href: '/messenger'
     });
   }
 

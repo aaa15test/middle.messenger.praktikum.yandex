@@ -151,9 +151,6 @@ const withChats = withStore((state) => {
   const userName = (state.chats.data || []).find((chat: Chat) => {
     return chat.id === state.activeChatId
   })?.title
-  return {
-    ...state,
-    userName
-  }
+  return { ...state, userName }
 })
 export const ChatHeader = withChats(Header as typeof Block);

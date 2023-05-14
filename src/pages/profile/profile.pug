@@ -2,25 +2,27 @@
   | !{ backButton }
   .information
     .userData
-      .avatar
-        | !{ avatar }
-      .inputBlock
-        form
-          | !{ email }
-          | !{ login }
-          | !{ firstName }
-          | !{ lastName }
-          | !{ displayName }
-          | !{ phone }
+      if isLoading
+        p Loading...
+      else
+        .avatar
+          | !{ avatar }
+        .inputBlock
+          form
+            | !{ email }
+            | !{ login }
+            | !{ firstName }
+            | !{ lastName }
+            | !{ displayName }
+            | !{ phone }
 
-          //- Кнопки "Изменить данные" и "Изменить пароль"
-          //- .changeButtons
-          //-   | !{ changeData }
-          //-   | !{ changePassword }
+            //- Кнопки "Изменить данные" и "Изменить пароль"
+            .changeButtons
+              | !{ changeData }
+              | !{ changePassword }
 
-          //- Кнопки "Сохранить" и "Выйти"
-          .logoutButtonBlock
-            //- | !{ logout }
-            | !{ save }
+            //- Кнопки "Сохранить" и "Выйти"
+            .logoutButtonBlock
+              | !{ logout }
 
   | !{ uploadFileModal }

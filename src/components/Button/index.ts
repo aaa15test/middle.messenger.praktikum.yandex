@@ -3,12 +3,14 @@ import template from './button.pug'
 import styles from './index.styl'
 
 interface ButtonProps {
+  id?: number,
   label: string;
   name: string;
   type: string;
   className?: string;
   style?: object;
-  labelStyle?: object;
+  labelStyle?: string;
+  childrenType?: string,
   events: {
     click?: (e: Event) => void
   };

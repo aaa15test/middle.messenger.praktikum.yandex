@@ -9,6 +9,9 @@ interface InputProps {
   type: string;
   placeholder?: string;
   value?: string,
+  disabled?: boolean,
+  accept?: string,
+  options?: [],
   style?: {},
   events?: {
     click?: (e: Event) => unknown,
@@ -25,6 +28,14 @@ export class Input extends Block<InputProps> {
 
   init() {
     this.element?.setAttribute('id', this.props.id)
+  }
+
+  getName() {
+    return (this.element as HTMLInputElement).name
+  }
+
+  getValue() {
+    return (this.element as HTMLInputElement).value
   }
 
   render() {

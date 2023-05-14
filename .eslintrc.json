@@ -20,7 +20,13 @@
     "@typescript-eslint/no-explicit-any": "off",
     "no-underscore-dangle": "off",
     "@typescript-eslint/no-empty-function": "off",
-    "@typescript-eslint/no-this-alias": "off"
+    "@typescript-eslint/no-this-alias": "off",
+    "max-classes-per-file": "off",
+    "no-restricted-syntax": "off",
+    "no-prototype-builtins": "off",
+    "no-param-reassign": "off",
+    "no-continue": "off",
+    "lines-between-class-members": "off"
   },
   "env": {
     "browser": true,

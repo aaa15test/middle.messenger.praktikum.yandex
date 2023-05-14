@@ -1,14 +1,15 @@
 import Block from '../../utils/Block'
+import { PropsWithRouter, withRouter } from '../../hocs/withRouter'
 import template from './link.pug'
 import styles from './index.styl';
 
-interface LinkProps {
+interface LinkProps extends PropsWithRouter {
   href: string;
   label: string;
   style?: string;
 }
 
-export class Link extends Block<LinkProps> {
+class BaseLink extends Block<LinkProps> {
   constructor(props: LinkProps) {
     super(props)
   }
@@ -17,3 +18,5 @@ export class Link extends Block<LinkProps> {
     return this.compile(template, { ...this.props, styles });
   }
 }
+
+export const Link = withRouter(BaseLink)

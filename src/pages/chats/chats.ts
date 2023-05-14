@@ -2,79 +2,133 @@ import Block from '../../utils/Block'
 import { Button } from '../../components/Button'
 import { ChatHeader } from '../../components/ChatHeader'
 import { ChatItem } from '../../components/ChatItem'
-import { Search } from '../../components/Search'
+import { Notification } from '../../components/Notification'
 import { Link } from '../../components/Link'
 import { Message } from '../../components/Message'
 import { SendMessage } from '../../components/SendMessage'
-import { chats, messages } from './data.json'
+import { CreateChatModal } from '../../components/CreateChatModal'
+import ChatController from '../../controller/ChatController'
+import { Chat } from '../../api/ChatAPI'
 import template from './chats.pug'
 import styles from './chats.styl'
+import { store, withStore } from '../../utils/Store'
+import MessageController, { MessageData } from '../../controller/MessageController'
 
-export class Chats extends Block {
-  constructor() {
-    super({});
+interface ChatListProps {
+  chats: Chat[],
+  isLoading: boolean,
+  messages: MessageData[],
+  messagesListHeight: number,
+  notification: {
+    text: string,
+    type: string
+  }
+}
+
+class ChatsPage extends Block<ChatListProps> {
+  constructor(props: ChatListProps) {
+    super(props);
   }
 
-  activeChatId: string
-
   init() {
-    this.children.search = new Search({
-      placeholder: 'Поиск'
-    })
+    ChatController.fetchChats()
 
     this.children.chatHeader = new ChatHeader({
-      userId: chats[0].id,
-      userName: chats[0].userName
+      userId: store.getState().activeChatId,
+      userName: (store.getState().chats.data || []).find((chat) => {
+        return chat.id === store.getState().activeChatId
+      })?.title
     })
 
     this.children.myProfileLink = new Link({
       label: 'Мой профиль',
-      href: '/profile'
+      href: '/settings'
     })
 
-    this.children.messages = this.displayMessages()
+    this.children.messages = this.displayMessages(this.props)
 
     this.children.sendMessage = new SendMessage()
 
-    this.children.button = new Button({
-      label: 'Авторизация',
-      name: 'login',
-      type: 'submit',
-      style: { background: '#53aa7e' },
+    this.children.createNewChatButton = new Button({
+      label: 'Новый чат',
+      name: 'createNewChat',
+      type: 'button',
+      style: { height: '40px' },
       events: {
-        click: () => console.log('click')
+        click: (e: Event) => this.addNewChatModalOpen(e)
       }
     })
 
-    this.children.chats = this.createChats()
+    this.children.createChatModal = new CreateChatModal({})
+    this.children.chatsView = this.createChats(this.props)
+    this.children.notification = this.showNotification(this.props)
   }
 
-  private createChats() {
-    return chats.map((chat: {
-      id: string,
-      userName: string,
-      lastMessage: string,
-      messageDate: string,
-      unreadMessagesCount?: number
-    }) => {
+  protected componentDidUpdate(newProps: ChatListProps): boolean {
+    this.children.chatsView = this.createChats(newProps)
+    this.children.messages = this.displayMessages(newProps)
+    this.children.notification = this.showNotification(newProps)
+    return true
+  }
+
+  private createChats(props: ChatListProps) {
+    const chats = props.chats || store.getState().chats.data
+    return chats.map((chat) => {
       return new ChatItem({
         ...chat,
         events: {
-          click: () => this.setProps({ activeChatId: chat.id })
+          click: () => {
+            this.selectChat(+chat.id)
+          }
         }
       })
     })
   }
 
-  private displayMessages() {
-    return messages.map((message: {
-      text: string,
-      date: string,
-      isMyMessage?: boolean
-    }) => new Message(message))
+  private displayMessages(props: ChatListProps) {
+    const messages = props.messages || store.getState().messages
+    return messages.map((message: MessageData) => new Message(message))
+  }
+
+  async selectChat(chatId: number) {
+    ChatController.setActiveChat(chatId)
+    const token: any = await ChatController.getToken(chatId)
+    if (token) {
+      const userId = store.getState().user.id
+      MessageController.connect({
+        chatId,
+        token: token.token,
+        userId
+      })
+      const messagesBlock = document.getElementsByClassName('messages')[0] as HTMLElement
+      window.scrollTo(0, messagesBlock.offsetHeight)
+    }
+  }
+
+  addNewChatModalOpen(e: Event) {
+    return (this.children.createChatModal as CreateChatModal).showModal()
+  }
+
+  showNotification(props: ChatListProps) {
+    const notificationsData = props.notification || store.getState().notification
+    return new Notification(notificationsData)
   }
 
   render() {
-    return this.compile(template, { ...this.props, styles });
+    return this.compile(template, {
+      ...this.props,
+      styles
+    })
   }
 }
+
+const withChats = withStore((state) => {
+  return {
+    chats: [...(state.chats.data || [])],
+    messages: [...(state.messages || [])],
+    isLoading: state.chats.isLoading,
+    activeChatId: state.activeChatId,
+    showNotification: state.showNotification
+  }
+})
+export const Chats = withChats(ChatsPage as typeof Block);

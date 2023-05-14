@@ -3,6 +3,8 @@ import { Button } from '../../components/Button'
 import { InputLabel } from '../../components/InputLabel'
 import { Link } from '../../components/Link'
 import { validationForm } from '../../utils/validationsForm'
+import AuthController from '../../controller/AuthController'
+import { SignupData } from '../../api/AuthAPI'
 import template from './register.pug';
 import styles from './register.styl'
 
@@ -26,14 +28,14 @@ export class Register extends Block {
       type: 'text'
     });
 
-    this.children.firstName = new InputLabel({
+    this.children.first_name = new InputLabel({
       id: 'first_name',
       label: 'Имя',
       name: 'first_name',
       type: 'text'
     });
 
-    this.children.secondName = new InputLabel({
+    this.children.second_name = new InputLabel({
       id: 'second_name',
       label: 'Фамилия',
       name: 'second_name',
@@ -79,7 +81,16 @@ export class Register extends Block {
 
   private submit(e: Event & { target: HTMLInputElement }) {
     e.preventDefault()
-    validationForm(this.getContent(), e, this.children)
+    const form: HTMLFormElement = document.querySelector('form')
+    const isValid = validationForm(form, e, this.children)
+
+    if (isValid) {
+      const values = Object.values(this.children).filter((child) => child instanceof InputLabel)
+        .map((child) => [(child as InputLabel).getName(), (child as InputLabel).getValue()])
+
+      const data = Object.fromEntries(values)
+      AuthController.signup(data as SignupData)
+    }
   }
 
   render() {

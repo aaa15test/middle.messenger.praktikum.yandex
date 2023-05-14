@@ -3,6 +3,7 @@ import { Button } from '../../components/Button'
 import { InputLabel } from '../../components/InputLabel'
 import { Link } from '../../components/Link'
 import { validationForm } from '../../utils/validationsForm'
+import AuthController from '../../controller/AuthController'
 import template from './login.pug';
 import styles from './login.styl'
 
@@ -23,9 +24,9 @@ export class Login extends Block {
     });
 
     this.children.email = new InputLabel({
-      id: 'email',
-      label: 'Email',
-      name: 'email',
+      id: 'login',
+      label: 'Логин',
+      name: 'login',
       type: 'text'
     });
 
@@ -38,17 +39,22 @@ export class Login extends Block {
 
     this.children.link = new Link({
       label: 'Регистрация',
-      href: '/register'
+      href: '/sign-up'
     });
-  }
-
-  getContent() {
-    return this.element
   }
 
   private submit(e: Event & { target: HTMLInputElement }) {
     e.preventDefault()
-    validationForm(this.getContent(), e, this.children)
+    const form: HTMLFormElement = document.querySelector('form')
+    const isValid = validationForm(form, e, this.children).every((item) => item === true)
+
+    if (isValid) {
+      const values = Object.values(this.children).filter((child) => child instanceof InputLabel)
+        .map((child) => [(child as InputLabel).getName(), (child as InputLabel).getValue()])
+
+      const data = Object.fromEntries(values)
+      AuthController.signin(data)
+    }
   }
 
   render() {

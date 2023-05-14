@@ -1,26 +1,38 @@
 .chatsWrapper
-  .chatsList
-    .searchWrapper
-      | !{ search }
-      .myProfile
-        | !{ myProfileLink }
-        i.fa.fa-angle-right.angleIcon
-    .chatWrapper
-      each chat in chats
-        | !{ chat }
+  .chatsListWrapper
+    .chatsList
+      .searchWrapper
+        .myProfile
+          | !{ myProfileLink }
+          .angleIcon ❯
+      .createChat
+        | !{ createNewChatButton }
+      .chatWrapper
+        if isLoading
+          p Loading...
+        else
+          if chats
+            each chat in chatsView
+              | !{ chat }
   
   if !activeChatId
     .chatChoosed
       p.selectChat Выберите чат для отправки сообщения
+      p.selectChat или создайте новый
   else
     .chatBlock
       .chatHeaderBlock
         | !{ chatHeader }
       .chatData
-        p.chatDate Вчера
         .messagesBlock
-          each message in messages
-            | !{ message }
+          .messages
+            each message in messages
+              .messageContent
+                | !{ message }
 
         .sendBlock
-          | !{ sendMessage }          
+          | !{ sendMessage }  
+
+  | !{ createChatModal }    
+  if showNotification
+    | !{ notification }

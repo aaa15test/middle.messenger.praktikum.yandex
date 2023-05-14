@@ -1,7 +1,9 @@
 .modalWrapper(id='uploadFileModal')
   .modal
-    p.modalTitle Upload file
+    .closeButton
+      | !{ close }
+    p.modalTitle Загрузить файл
     .selectFileButton
-      | !{ link }
-    .linkButton
+      .selectFile
+        input.inputSelect(id='avatarUpload' type='file' name='avatar' accept='image/*' value="Выбрать файл на компьютере")
       | !{ button }

@@ -8,7 +8,8 @@ interface AvatarProps {
   userName: string;
   avatarWidth: string;
   showUserName?: boolean;
-  events: {
+  src?: string,
+  events?: {
     click: () => void;
   };
 }

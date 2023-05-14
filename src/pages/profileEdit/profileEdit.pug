@@ -1,0 +1,23 @@
+.wrapper
+  | !{ backButton }
+  .information
+    .userData
+      if isLoading
+        p Loading...
+      else
+        p.profileEdit Редактирование профиля
+        .avatar
+          | !{ avatar }
+        .inputBlock
+          form
+            | !{ email }
+            | !{ login }
+            | !{ first_name }
+            | !{ second_name }
+            | !{ display_name }
+            | !{ phone }
+
+          .logoutButtonBlock
+            | !{ save }
+
+  | !{ uploadFileModal }

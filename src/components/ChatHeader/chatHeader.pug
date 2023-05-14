@@ -2,4 +2,12 @@
   .userInformation
     | !{ avatar }
     p.chatUserName= userName
-  i.fa.fa-bars.barsIcon
+  | !{ button }
+  div.popuptext(id='myPopup')
+    | !{ addUser }
+    | !{ deleteUser }
+    | !{ deleteChat }
+
+  | !{ addChatUserModal }
+  | !{ deleteChatUserModal }
+  | !{ deleteChatModal }

@@ -2,5 +2,8 @@
   label.inputProfileLabel(for=name)= label
   .inputErrorWrapper
     .inputProfile
-      | !{ input }
+      if !disabled
+        | !{ input }
+      else
+        p= value
     p.error= !{ error }

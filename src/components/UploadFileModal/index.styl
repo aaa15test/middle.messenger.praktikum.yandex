@@ -22,10 +22,51 @@
   font-weight bold
   text-align center
 
-.selectFileButton
-  display flex
-  justify-content center
-  margin-top 32px
+.selectFile
+  position relative
+  overflow hidden
+  margin-bottom 88px
 
-.linkButton
-  margin-top 88px
+.selectFileInput
+  color $green
+  text-decoration underline
+  background-color $white
+  border-width 0px
+  font-size 16px
+  text-align center
+  margin 0 auto
+  display flex
+  cursor pointer
+
+.selectInput
+  position absolute
+  top 0
+  right 0
+  min-width 100%
+  min-height 100%
+  opacity 0
+  cursor pointer
+
+.closeButton
+  display flex
+  justify-content flex-end
+  position relative
+  top -20px
+
+.inputSelect
+  padding 10px
+  margin 0 auto
+  border-width 0
+  text-align center
+
+.inputSelect
+  color $green
+  text-decoration underline
+  background-color $white
+  border-width 0px
+  font-size 16px
+  text-align center
+  margin 0 auto
+  display flex
+  cursor pointer
+  content attr(value)''

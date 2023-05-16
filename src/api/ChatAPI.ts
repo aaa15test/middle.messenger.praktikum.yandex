@@ -62,7 +62,4 @@ export class ChatAPI extends BaseAPI {
   deleteChat(chatId: number) {
     return this.http.delete('', { chatId })
   }
-
-  delete = undefined
-  update = undefined
 }

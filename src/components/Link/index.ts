@@ -1,21 +1,33 @@
 import Block from '../../utils/Block'
 import { PropsWithRouter, withRouter } from '../../hocs/withRouter'
 import template from './link.pug'
-import styles from './index.styl';
+import './index.styl';
 
 interface LinkProps extends PropsWithRouter {
   href: string;
   label: string;
   style?: string;
+  events?: {
+    click: () => void
+  }
 }
 
-class BaseLink extends Block<LinkProps> {
+export class BaseLink extends Block<LinkProps> {
   constructor(props: LinkProps) {
-    super(props)
+    super({
+      ...props,
+      events: {
+        click: () => this.navigate()
+      }
+    })
+  }
+
+  navigate() {
+    this.props.router.go(this.props.href)
   }
 
   render() {
-    return this.compile(template, { ...this.props, styles });
+    return this.compile(template, { ...this.props });
   }
 }
 

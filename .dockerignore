@@ -1,0 +1,5 @@
+package-lock.json
+mochaSetup.js
+.git
+dist
+node_modules

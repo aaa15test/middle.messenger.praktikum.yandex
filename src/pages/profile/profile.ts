@@ -4,7 +4,6 @@ import { Button } from '../../components/Button'
 import { InputProfile } from '../../components/InputProfile'
 import { BackButton } from '../../components/BackButton'
 import { UploadFileModal } from '../../components/UploadFileModal'
-import { validationForm } from '../../utils/validationsForm'
 import { withStore } from '../../utils/Store'
 import AuthController from '../../controller/AuthController'
 import { User } from '../../api/UserAPI'
@@ -130,11 +129,6 @@ class ProfilePage extends Block {
     });
 
     this.children.uploadFileModal = new UploadFileModal({});
-  }
-
-  private submit(e: Event & { target: HTMLInputElement }) {
-    e.preventDefault()
-    validationForm(this.getContent(), e, this.children)
   }
 
   private openUploadAvatarModal(e: Event) {

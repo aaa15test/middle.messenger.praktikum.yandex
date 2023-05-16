@@ -7,11 +7,11 @@ export default abstract class BaseAPI {
     this.http = new HTTPTransport(endpoint);
   }
 
-  public abstract create?(data: unknown): Promise<unknown>;
+  create(data: unknown) { throw new Error(`${data} not implemented yet`) }
 
-  public abstract read?(identifier?: string): Promise<unknown>;
+  read() { throw new Error() }
 
-  public abstract update?(identifier: string, data: unknown): Promise<unknown>;
+  update() { throw new Error() }
 
-  public abstract delete?(identifier: string | number): Promise<unknown>;
+  delete() { throw new Error() }
 }

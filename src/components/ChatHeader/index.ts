@@ -62,7 +62,7 @@ export class Header extends Block<ChatHeaderProps> {
       className: 'withoutBorder',
       style: { height: '33px' },
       events: {
-        click: (e: Event) => this.deleteUserModalOpen(e)
+        click: () => this.deleteUserModalOpen()
       },
     });
 
@@ -73,7 +73,7 @@ export class Header extends Block<ChatHeaderProps> {
       className: 'withoutBorder',
       style: { height: '33px' },
       events: {
-        click: (e: Event) => this.deleteChatModalOpen(e)
+        click: () => this.deleteChatModalOpen()
       },
     });
 
@@ -105,17 +105,18 @@ export class Header extends Block<ChatHeaderProps> {
   addUserModalOpen(e: Event) {
     e.preventDefault()
     this.openPopup()
-    return (this.children.addChatUserModal as AddDeleteChatUserModal).showModal()
+    return (this.children.addChatUserModal as unknown as typeof AddDeleteChatUserModal).showModal()
   }
 
-  deleteUserModalOpen(e: Event) {
+  deleteUserModalOpen() {
     this.openPopup()
-    return (this.children.deleteChatUserModal as AddDeleteChatUserModal).showModal()
+    // eslint-disable-next-line max-len
+    return (this.children.deleteChatUserModal as unknown as typeof AddDeleteChatUserModal).showModal()
   }
 
-  deleteChatModalOpen(e: Event) {
+  deleteChatModalOpen() {
     this.openPopup()
-    return (this.children.deleteChatModal as AddDeleteChatUserModal).showModal()
+    return (this.children.deleteChatModal as unknown as typeof AddDeleteChatUserModal).showModal()
   }
 
   openPopup() {

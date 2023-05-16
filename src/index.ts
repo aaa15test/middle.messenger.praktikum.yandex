@@ -1,4 +1,3 @@
-import { Navigation } from './components/Navigation';
 import { Login } from './pages/login/login';
 import { Register } from './pages/register/register';
 import { Profile } from './pages/profile/index';
@@ -38,8 +37,6 @@ window.addEventListener('DOMContentLoaded', async () => {
   const root: HTMLElement = document.getElementById('root');
   const content: HTMLElement = document.createElement('div')
   content.className = 'content'
-  const navigation = new Navigation()
-  root?.appendChild(navigation.element)
   root?.append(content)
 
   switch (window.location.pathname) {

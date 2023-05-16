@@ -1,7 +1,6 @@
 import Block from '../../utils/Block'
 import { Button } from '../Button'
 import { InputLabel } from '../InputLabel'
-import { Avatar } from '../Avatar'
 import UserController from '../../controller/UserController'
 import AuthController from '../../controller/AuthController'
 import { User } from '../../api/UserAPI'
@@ -19,10 +18,6 @@ interface AddDeleteChatUserModalProps {
   events?: {
     click: (e: Event) => void
   };
-}
-
-interface UserProps {
-  searchUsers: User[]
 }
 
 class AddDeleteChatUser extends Block<AddDeleteChatUserModalProps> {

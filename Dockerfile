@@ -1,4 +1,4 @@
-FROM node:20.1.0
+FROM node:18.0.0
 RUN apt update && apt install -y nodejs && apt install -y npm
 WORKDIR /var/www
 COPY ./server.js server.js

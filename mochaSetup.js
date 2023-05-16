@@ -12,6 +12,7 @@ global.DocumentFragment = window.DocumentFragment
 
 require.extensions['.pug'] = function (module, filename) {
   const contents = fs.readFileSync(filename, 'utf-8')
+
   module.exports = Pug.compile(contents)
 }
 

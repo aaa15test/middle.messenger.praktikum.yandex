@@ -5,25 +5,35 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
   mode: 'development',
   entry: './src/index.ts',
+  devtool: 'inline-source-map',
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'project-name.bundle.js'
+    path: path.resolve(__dirname, './dist'),
+    filename: 'index.[hash].js',
+    publicPath: '/'
   },
   devServer: {
     compress: true,
     port: 3000,
-    historyApiFallback: true
+    historyApiFallback: true,
+    open: true,
+    hot: true
   },
   resolve: {
-    extensions: ['.ts', '.js', '.pug'],
-    alias: {
-      pug: 'pug/dist/pug.min.js'
-    }
+    extensions: ['.ts', '.js', '.json']
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./index.html",
+      filename: "index.html"
+    }),
+    new MiniCssExtractPlugin({
+      filename: "style.[hash].css"
+    })
+  ],
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
+        test: /\.ts?$/,
         use: [
           {
             loader: 'ts-loader',
@@ -32,7 +42,7 @@ module.exports = {
             },
           },
         ],
-        exclude: /(node_modules)/
+        exclude: path.resolve(__dirname, "node_modules")
       },
       {
         test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
@@ -51,25 +61,23 @@ module.exports = {
           },
           "css-loader",
           "stylus-loader"
-        ]
+        ],
+        exclude: /(node_modules)/
       },
       {
         test: /\.pug$/,
         use: [
           {
             loader: 'pug-loader',
-            options: {}
+            options: {
+              precompileOptions: {
+                knownHelpersOnly: false,
+              }
+            }
           }
-        ]
+        ],
+        exclude: /(node_modules)/
       }
     ]
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: "./index.html"
-    }),
-    new MiniCssExtractPlugin({
-      filename: "./style.css"
-    })
-  ]
+  }
 };

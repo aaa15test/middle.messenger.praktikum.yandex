@@ -4,9 +4,8 @@
   "description": "### Откройте pull request в ветку main из ветки, где вы разрабатывали проект, и добавьте ссылку на этот pr в README.md в ветке main.  ### ВАЖНО: pull request должен называться “Sprint i” (i — номер спринта).",
   "scripts": {
     "test": "mocha --require ts-node/register --require ./mochaSetup.js './src/**/*.test.ts'",
-    "start": "npm run webpack && node ./server.js",
+    "start": "npm run webpack && webpack serve --open",
     "dev": "npm run webpack && npm run dev-server",
-    "build": "parcel build index.html --no-cache",
     "dev-server": "webpack serve",
     "webpack": "node ./node_modules/.bin/webpack",
     "stylelint": "npm stylelint '**/*.styl",

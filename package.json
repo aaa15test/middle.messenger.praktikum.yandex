@@ -5,6 +5,7 @@
   "scripts": {
     "test": "mocha --require ts-node/register --require ./mochaSetup.js './src/**/*.test.ts'",
     "start": "npm run webpack && webpack serve --open",
+    "build": "webpack",
     "dev": "npm run webpack && npm run dev-server",
     "dev-server": "webpack serve",
     "webpack": "node ./node_modules/.bin/webpack",

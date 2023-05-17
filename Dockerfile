@@ -1,7 +1,7 @@
 FROM node:18
-WORKDIR /var/www
-COPY . .
+WORKDIR /src
+ADD /src
 RUN npm install 
-COPY ./server.js server.js
+ADD package.json /package.json
 EXPOSE 3000
 CMD npm run start

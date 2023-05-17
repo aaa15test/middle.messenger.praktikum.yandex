@@ -1,6 +1,6 @@
 FROM node:18
-WORKDIR /src
-ADD . /src
+WORKDIR /
+ADD . /
 ADD package.json /package.json
 RUN npm install
 EXPOSE 3000

@@ -44,7 +44,6 @@ export class AuthAPI extends BaseAPI {
   }
 
   getUser() {
-    console.log('getUser11')
     return this.http.get('/user');
   }
 }

@@ -6,6 +6,7 @@ import { UpdatePassword } from './pages/updatePassword/index'
 import { Chats } from './pages/chats/index';
 import { Page500 } from './pages/500/index';
 import { Page404 } from './pages/404/index';
+import { store } from './utils/Store'
 import AuthController from './controller/AuthController';
 import Router from './utils/Router'
 
@@ -49,9 +50,9 @@ window.addEventListener('DOMContentLoaded', async () => {
   }
 
   try {
-    const user = await AuthController.fetchUser()
+    await AuthController.fetchUser()
 
-    if (user) {
+    if (store.getState().user) {
       Router.start()
 
       if (!isProtectedRoute) {

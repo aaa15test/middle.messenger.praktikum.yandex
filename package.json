@@ -5,7 +5,7 @@
   "scripts": {
     "precommit": "npm-run-all test stylelint eslint",
     "test": "mocha --require ts-node/register --require ./mochaSetup.js './src/**/*.test.ts'",
-    "start": "npm run webpack && webpack serve --open",
+    "start": "webpack serve --open",
     "build": "webpack",
     "dev": "webpack serve",
     "webpack": "node ./node_modules/.bin/webpack",

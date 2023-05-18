@@ -12,6 +12,7 @@ class AuthController {
   async signin(data: SigninData) {
     try {
       await this.api.signin(data)
+      console.log('signin1111')
       await this.fetchUser();
       router.go('/messenger')
     } catch (err) {
@@ -38,6 +39,7 @@ class AuthController {
     store.set('isLoading', true);
     store.set('editData', false);
     const user = await this.api.getUser()
+    console.log(user, 'user111')
     store.set('user', user)
   }
 }

@@ -52,6 +52,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   try {
     await AuthController.fetchUser()
 
+    console.log(store.getState(), 'store.getState()')
     if (store.getState().user) {
       Router.start()
 

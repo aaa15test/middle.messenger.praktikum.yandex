@@ -5,7 +5,6 @@ import { withStore, store } from '../../utils/Store'
 import template from './chatHeader.pug'
 import styles from './index.styl';
 import { Chat } from '../../api/ChatAPI';
-import chatDefaultAvatar from '../../icons/chatDefaultAvatar.jpg'
 import { AddDeleteChatUserModal } from '../AddDeleteChatUserModal'
 import ChatController from '../../controller/ChatController'
 import { Notification } from '../Notification'
@@ -28,7 +27,6 @@ export class Header extends Block<ChatHeaderProps> {
       name: 'avatar',
       userName: this.props.userName,
       avatarWidth: '46px',
-      src: chatDefaultAvatar,
       events: {
         click: () => console.log('click')
       }

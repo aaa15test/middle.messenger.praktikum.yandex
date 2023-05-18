@@ -68,7 +68,7 @@ module.exports = {
         test: /\.pug$/,
         use: [
           {
-            loader: 'pug-loader',
+            loader: '@webdiscus/pug-loader',
             options: {
               precompileOptions: {
                 knownHelpersOnly: false,

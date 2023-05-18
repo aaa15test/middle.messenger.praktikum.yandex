@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "### Откройте pull request в ветку main из ветки, где вы разрабатывали проект, и добавьте ссылку на этот pr в README.md в ветке main.  ### ВАЖНО: pull request должен называться “Sprint i” (i — номер спринта).",
   "scripts": {
+    "precommit": "npm-run-all test stylelint eslint",
     "test": "mocha --require ts-node/register --require ./mochaSetup.js './src/**/*.test.ts'",
     "start": "npm run webpack && webpack serve --open",
     "build": "webpack",
@@ -10,6 +11,17 @@
     "webpack": "node ./node_modules/.bin/webpack",
     "stylelint": "npm stylelint '**/*.styl",
     "eslint": "npx eslint .ts"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": {
+        "*.ts": [
+          "npm run test",
+          "npm run lint",
+          "npm stylelint"
+        ]
+      }
+    }
   },
   "repository": {
     "type": "git",
@@ -21,18 +33,13 @@
   "bugs": {
     "url": "https://github.com/aaa15test/middle.messenger.praktikum.yandex/issues"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run precommit"
-    }
-  },
   "homepage": "https://github.com/aaa15test/middle.messenger.praktikum.yandex#readme",
   "dependencies": {
+    "@webdiscus/pug-loader": "^2.10.4",
     "express": "^4.18.2",
     "js-stringify": "^1.0.2",
     "jsdom": "^22.0.0",
     "nanoid": "^3.0.0",
-    "pug-loader": "^2.4.0",
     "svgo": "^3.0.2"
   },
   "devDependencies": {
@@ -65,7 +72,7 @@
     "path-browserify": "^1.0.1",
     "prettier": "^2.8.7",
     "process": "^0.11.10",
-    "pug": "^2.0.4",
+    "pug": "^3.0.2",
     "sinon": "^15.0.4",
     "stylelint": "^15.3.0",
     "stylelint-stylus": "^0.18.0",

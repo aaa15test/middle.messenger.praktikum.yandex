@@ -17,8 +17,8 @@
     "removeComments": true,
     "moduleResolution": "node"
   },
-  "exclude": ["node_modules"],
-  "include": ["**/*.ts"],
+  "exclude": ["dist", "node_modules"],
+  "include": ["./**/*.ts"],
   "lib": ["ESNext", "DOM"],
   "ts-node": {
     "files": true

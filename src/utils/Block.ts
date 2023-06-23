@@ -119,7 +119,8 @@ class Block<P extends Record<string, any> = any> {
     }
   }
 
-  protected componentDidUpdate(oldProps?: P, newProps?: P) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  protected componentDidUpdate(_oldProps?: P, _newProps?: P) {
     return true;
   }
 
@@ -154,6 +155,8 @@ class Block<P extends Record<string, any> = any> {
     const contextAndStubs = { ...context };
 
     Object.entries(this.children).forEach(([name, component]) => {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       contextAndStubs[name] = `<div data-id="${component.id}"></div>`
       if (Array.isArray(component)) {
         contextAndStubs[name] = component.map((child) => {
@@ -182,7 +185,7 @@ class Block<P extends Record<string, any> = any> {
       stub.replaceWith(component.getContent()!);
     }
 
-    Object.entries(this.children).forEach(([name, component]) => {
+    Object.entries(this.children).forEach(([, component]) => {
       if (Array.isArray(component)) {
         component.forEach(replaceStub);
       } else {

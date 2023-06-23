@@ -51,9 +51,4 @@ export class UserAPI extends BaseAPI {
   searchUser(login: string) {
     return this.http.post('/search', { login })
   }
-
-  create = undefined
-  delete = undefined
-  read = undefined
-  update = undefined
 }

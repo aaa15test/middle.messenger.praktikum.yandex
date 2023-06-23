@@ -1,7 +1,10 @@
 - const style = { width: avatarWidth, height: avatarWidth }
 div
-  button.avatarWrapper(id=id name=name style=style onclick=events.click)
-    img.img(src=src style=style)
+  button.avatarWrapper(id=id name=name onclick=events.click)
+    if src
+      img.img(src=src style=style)
+    else
+      .defaultAvatar(style=style)
   if showUserName
     p.avatarUserName= userName
 

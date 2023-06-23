@@ -55,7 +55,7 @@ class ChatsPage extends Block<ChatListProps> {
       type: 'button',
       style: { height: '40px' },
       events: {
-        click: (e: Event) => this.addNewChatModalOpen(e)
+        click: () => this.addNewChatModalOpen()
       }
     })
 
@@ -105,8 +105,8 @@ class ChatsPage extends Block<ChatListProps> {
     }
   }
 
-  addNewChatModalOpen(e: Event) {
-    return (this.children.createChatModal as CreateChatModal).showModal()
+  addNewChatModalOpen() {
+    return (this.children.createChatModal as unknown as typeof CreateChatModal).showModal()
   }
 
   showNotification(props: ChatListProps) {

@@ -10,7 +10,7 @@ interface AvatarProps {
   showUserName?: boolean;
   src?: string,
   events?: {
-    click: () => void;
+    click: (e: Event) => void;
   };
 }
 

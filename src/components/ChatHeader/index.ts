@@ -5,7 +5,6 @@ import { withStore, store } from '../../utils/Store'
 import template from './chatHeader.pug'
 import styles from './index.styl';
 import { Chat } from '../../api/ChatAPI';
-import chatDefaultAvatar from '../../icons/chatDefaultAvatar.jpg'
 import { AddDeleteChatUserModal } from '../AddDeleteChatUserModal'
 import ChatController from '../../controller/ChatController'
 import { Notification } from '../Notification'
@@ -28,7 +27,6 @@ export class Header extends Block<ChatHeaderProps> {
       name: 'avatar',
       userName: this.props.userName,
       avatarWidth: '46px',
-      src: chatDefaultAvatar,
       events: {
         click: () => console.log('click')
       }
@@ -62,7 +60,7 @@ export class Header extends Block<ChatHeaderProps> {
       className: 'withoutBorder',
       style: { height: '33px' },
       events: {
-        click: (e: Event) => this.deleteUserModalOpen(e)
+        click: () => this.deleteUserModalOpen()
       },
     });
 
@@ -73,7 +71,7 @@ export class Header extends Block<ChatHeaderProps> {
       className: 'withoutBorder',
       style: { height: '33px' },
       events: {
-        click: (e: Event) => this.deleteChatModalOpen(e)
+        click: () => this.deleteChatModalOpen()
       },
     });
 
@@ -105,17 +103,18 @@ export class Header extends Block<ChatHeaderProps> {
   addUserModalOpen(e: Event) {
     e.preventDefault()
     this.openPopup()
-    return (this.children.addChatUserModal as AddDeleteChatUserModal).showModal()
+    return (this.children.addChatUserModal as unknown as typeof AddDeleteChatUserModal).showModal()
   }
 
-  deleteUserModalOpen(e: Event) {
+  deleteUserModalOpen() {
     this.openPopup()
-    return (this.children.deleteChatUserModal as AddDeleteChatUserModal).showModal()
+    // eslint-disable-next-line max-len
+    return (this.children.deleteChatUserModal as unknown as typeof AddDeleteChatUserModal).showModal()
   }
 
-  deleteChatModalOpen(e: Event) {
+  deleteChatModalOpen() {
     this.openPopup()
-    return (this.children.deleteChatModal as AddDeleteChatUserModal).showModal()
+    return (this.children.deleteChatModal as unknown as typeof AddDeleteChatUserModal).showModal()
   }
 
   openPopup() {

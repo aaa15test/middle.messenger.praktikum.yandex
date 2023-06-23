@@ -1,4 +1,3 @@
-import { Navigation } from './components/Navigation';
 import { Login } from './pages/login/login';
 import { Register } from './pages/register/register';
 import { Profile } from './pages/profile/index';
@@ -7,6 +6,7 @@ import { UpdatePassword } from './pages/updatePassword/index'
 import { Chats } from './pages/chats/index';
 import { Page500 } from './pages/500/index';
 import { Page404 } from './pages/404/index';
+import { store } from './utils/Store'
 import AuthController from './controller/AuthController';
 import Router from './utils/Router'
 
@@ -38,8 +38,6 @@ window.addEventListener('DOMContentLoaded', async () => {
   const root: HTMLElement = document.getElementById('root');
   const content: HTMLElement = document.createElement('div')
   content.className = 'content'
-  const navigation = new Navigation()
-  root?.appendChild(navigation.element)
   root?.append(content)
 
   switch (window.location.pathname) {
@@ -52,9 +50,9 @@ window.addEventListener('DOMContentLoaded', async () => {
   }
 
   try {
-    const user = await AuthController.fetchUser()
+    await AuthController.fetchUser()
 
-    if (user) {
+    if (store.getState().user) {
       Router.start()
 
       if (!isProtectedRoute) {

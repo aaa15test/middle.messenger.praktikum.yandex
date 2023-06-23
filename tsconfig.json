@@ -14,8 +14,13 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitAny": true,
-    "removeComments": true
+    "removeComments": true,
+    "moduleResolution": "node"
   },
-  "exclude": ["node_modules"],
-  "include": ["**/*"]
+  "exclude": ["dist", "node_modules"],
+  "include": ["./**/*.ts"],
+  "lib": ["ESNext", "DOM"],
+  "ts-node": {
+    "files": true
+  }
 }

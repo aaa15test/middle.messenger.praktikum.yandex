@@ -74,7 +74,7 @@ class UpdatePasswordPage extends Block<UpdatePasswordProps> {
   private async submit(e: Event & { target: HTMLInputElement }) {
     e.preventDefault()
     const form: HTMLFormElement = document.querySelector('form')
-    const isValid = validationForm(form, e, this.children).every((item) => item === true)
+    const isValid = validationForm(form, this.children).every((item) => item === true)
 
     if (isValid) {
       const values = Object.values(this.children).filter((child) => child instanceof InputProfile)
@@ -91,7 +91,7 @@ class UpdatePasswordPage extends Block<UpdatePasswordProps> {
     uploadFileModal.style.display = 'flex'
   }
 
-  componentDidUpdate(oldProps: UpdatePasswordProps, newProps: UpdatePasswordProps): boolean {
+  componentDidUpdate(): boolean {
     (this.children.avatar as Avatar).setProps({
       src: store.getState().user.avatar ? `https://ya-praktikum.tech/api/v2/resources${store.getState().user.avatar}` : ''
     })

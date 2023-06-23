@@ -39,7 +39,6 @@ class AuthController {
     store.set('editData', false);
     const user = await this.api.getUser()
     store.set('user', user)
-    return user
   }
 }
 

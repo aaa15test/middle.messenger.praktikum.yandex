@@ -3,7 +3,6 @@ import { InputProfile } from '../components/InputProfile'
 
 export function validationForm(
   form: HTMLFormElement,
-  e: Event & { target: HTMLInputElement },
   children: {}
 ) {
   const formData = new FormData(form)
@@ -18,6 +17,6 @@ export function validationForm(
   })
 
   return formElements.map(([name, child]) => {
-    return child.onValidate(formDataObj[name])
+    return (child as any).onValidate(formDataObj[name])
   })
 }

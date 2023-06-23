@@ -82,7 +82,7 @@ export class Register extends Block {
   private submit(e: Event & { target: HTMLInputElement }) {
     e.preventDefault()
     const form: HTMLFormElement = document.querySelector('form')
-    const isValid = validationForm(form, e, this.children)
+    const isValid = validationForm(form, this.children)
 
     if (isValid) {
       const values = Object.values(this.children).filter((child) => child instanceof InputLabel)

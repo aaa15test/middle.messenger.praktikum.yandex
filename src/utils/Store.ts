@@ -68,6 +68,9 @@ const store = new Store()
 export function withStore(mapStateToProps: (state: State) => any) {
   return (Component: typeof Block) => {
     return class extends Component {
+      static showModal() {
+        throw new Error('Method not implemented.')
+      }
       constructor(props: any) {
         // сохраняем начальное состояние
         let state = mapStateToProps(store.getState());

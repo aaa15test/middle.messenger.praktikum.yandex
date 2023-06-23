@@ -1,0 +1,4 @@
+mochaSetup.js
+.git
+/dist
+/node_modules

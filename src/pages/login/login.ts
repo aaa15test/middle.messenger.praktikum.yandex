@@ -46,7 +46,7 @@ export class Login extends Block {
   private submit(e: Event & { target: HTMLInputElement }) {
     e.preventDefault()
     const form: HTMLFormElement = document.querySelector('form')
-    const isValid = validationForm(form, e, this.children).every((item) => item === true)
+    const isValid = validationForm(form, this.children).every((item) => item === true)
 
     if (isValid) {
       const values = Object.values(this.children).filter((child) => child instanceof InputLabel)

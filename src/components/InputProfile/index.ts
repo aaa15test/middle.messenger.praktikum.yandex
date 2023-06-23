@@ -2,7 +2,6 @@ import Block from '../../utils/Block'
 import { regexes } from '../../utils/regexes'
 import { validation } from '../../utils/validation'
 import { Input } from '../Input'
-import { store } from '../../utils/Store'
 import template from './inputProfile.pug'
 import styles from './index.styl'
 

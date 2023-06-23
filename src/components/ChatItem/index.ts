@@ -1,7 +1,6 @@
 import Block from '../../utils/Block'
 import { Avatar } from '../Avatar'
 import { withStore } from '../../utils/Store'
-import chatDefaultAvatar from '../../icons/chatDefaultAvatar.jpg'
 import template from './chatItem.pug'
 import styles from './index.styl'
 
@@ -56,7 +55,6 @@ class Chat extends Block<ChatItemProps> {
       name: 'avatar',
       userName: '111',
       avatarWidth: '47px',
-      src: chatDefaultAvatar,
       events: {
         click: () => console.log('click')
       }
